@@ -1,6 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://bs72ogkvdd7d6"]
+[gd_scene load_steps=11 format=3 uid="uid://bs72ogkvdd7d6"]
 
 [ext_resource type="Script" uid="uid://majrx27lslif" path="res://addons/proto_controller/proto_controller.gd" id="1_ucva2"]
+[ext_resource type="Script" uid="uid://c4ee84xs1lmio" path="res://addons/proto_controller/head.gd" id="2_5hfox"]
 [ext_resource type="PackedScene" uid="uid://wwtntqc4krut" path="res://scenes/camera.tscn" id="2_wr06p"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iof21"]
@@ -51,7 +52,7 @@ tracks/0/path = NodePath("Camera:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
+"times": PackedFloat32Array(0, 0.25),
 "transitions": PackedFloat32Array(1, 2),
 "update": 0,
 "values": [Vector3(0.6, -0.5000001, -0.79999995), Vector3(-0.035, 0.02, -0.35)]
@@ -63,7 +64,7 @@ tracks/1/path = NodePath("Camera:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.5),
+"times": PackedFloat32Array(0, 0.25),
 "transitions": PackedFloat32Array(1, 2),
 "update": 0,
 "values": [Vector3(0.82591075, 3.0824747, -0.12418432), Vector3(0, 3.1415927, 0)]
@@ -126,13 +127,23 @@ shape = SubResource("CapsuleShape3D_iof21")
 
 [node name="Head" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
+script = ExtResource("2_5hfox")
 
 [node name="Camera3D" type="Camera3D" parent="Head"]
-
-[node name="Camera" parent="Head" instance=ExtResource("2_wr06p")]
-transform = Transform3D(-0.9959725, -0.08013306, 0.040219124, -0.08382154, 0.6729594, -0.73491454, 0.03182512, -0.7353258, -0.6769659, 0.6, -0.5, -0.8)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Head"]
 libraries = {
 &"": SubResource("AnimationLibrary_6dqce")
 }
+
+[node name="Camera" parent="Head" instance=ExtResource("2_wr06p")]
+transform = Transform3D(-0.9959724, -0.080133066, 0.040219128, -0.083821535, 0.67295945, -0.7349146, 0.031825118, -0.7353259, -0.67696595, 0.6, -0.5, -0.8)
+
+[node name="Button" type="Button" parent="Head"]
+offset_left = 454.0
+offset_top = 499.0
+offset_right = 711.0
+offset_bottom = 571.0
+text = "Change Cam"
+
+[connection signal="pressed" from="Head/Button" to="Head" method="_on_button_pressed"]

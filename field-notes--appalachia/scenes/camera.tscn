@@ -1,7 +1,22 @@
-[gd_scene load_steps=2 format=3 uid="uid://wwtntqc4krut"]
+[gd_scene load_steps=3 format=3 uid="uid://wwtntqc4krut"]
 
 [ext_resource type="PackedScene" uid="uid://bd68a1twpplqi" path="res://assets/camera/camera_canon_eos_400d.glb" id="1_u5kg4"]
 
-[node name="Camera" type="MeshInstance3D"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_cvpoc"]
+viewport_path = NodePath("SubViewport")
+
+[node name="Camera" type="Node3D"]
+
+[node name="SubViewport" type="SubViewport" parent="."]
+size = Vector2i(613, 512)
+render_target_update_mode = 4
+
+[node name="Camera3D" type="Camera3D" parent="SubViewport"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.5086715)
+current = true
 
 [node name="Sketchfab_Scene" parent="." instance=ExtResource("1_u5kg4")]
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(0.031999994, 0, 0, 0, 0.031999994, 0, 0, 0, 0.031999994, 0.044313602, -0.031075433, -0.19775496)
+texture = SubResource("ViewportTexture_cvpoc")
