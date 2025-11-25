@@ -53,6 +53,12 @@ var freeflying : bool = false
 ## IMPORTANT REFERENCES
 @onready var head: Node3D = $Head
 @onready var collider: CollisionShape3D = $Collider
+@onready var player_cam = $Head/Camera3D
+@onready var digicam_cam = $Head/Camera/SubViewport/Camera3D
+@onready var lens = $Head/Camera/Marker3D
+@onready var blank_material = StandardMaterial3D.new()
+@onready var digicam_pos = $Head/Camera/Marker3D
+
 
 func _ready() -> void:
 	check_input_mappings()
@@ -81,12 +87,12 @@ func _unhandled_input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("toggle_camera"):
 		if camera_open:
 			$Head/AnimationPlayer.play("close camera")
-			print("closing camera")
 			camera_open = false
 		else:
 			$Head/AnimationPlayer.play("open camera")
-			print("opening camera")
 			camera_open = true
+
+			
 
 func _physics_process(delta: float) -> void:
 	# If freeflying, handle freefly and nothing else
@@ -129,7 +135,14 @@ func _physics_process(delta: float) -> void:
 	
 	# Use velocity to actually move
 	move_and_slide()
-
+	
+func _process(delta: float) -> void:
+	digicam_cam.transform = digicam_pos.global_transform
+	#digicam_cam.global_position = lens.global_position 
+	#if camera_open:
+	#	digicam_cam.global_rotation = lens.global_rotation + Vector3(0, 180, 0)
+	#else: 
+	#	digicam_cam.global_rotation = Vector3(47.3, 356.6, -7.1)
 
 ## Rotate us to look around.
 ## Base of controller rotates around y (left/right). Head rotates around x (up/down).
@@ -142,6 +155,9 @@ func rotate_look(rot_input : Vector2):
 	rotate_y(look_rotation.y)
 	head.transform.basis = Basis()
 	head.rotate_x(look_rotation.x)
+	
+	
+	
 
 
 func enable_freefly():

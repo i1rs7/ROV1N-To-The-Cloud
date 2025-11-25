@@ -46,7 +46,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4, -0.2, -0.8)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.6000004, -0.2, 4.7)
 
 [node name="Tree 4 Big3" parent="Environment" instance=ExtResource("3_sugp2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.3, -0.2, 3.9000003)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -0.2, -13.499999)
 
 [node name="Tree 4 Big4" parent="Environment" instance=ExtResource("3_sugp2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.700001, -0.2, -0.8)
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="Environment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0999999, 0)
+height = 4.2

@@ -42,34 +42,6 @@ tracks/1/keys = {
 "values": [Vector3(0.8255407, 3.0822515, -0.12391838)]
 }
 
-[sub_resource type="Animation" id="Animation_wr06p"]
-resource_name = "camera move"
-length = 0.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Camera:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.25),
-"transitions": PackedFloat32Array(1, 2),
-"update": 0,
-"values": [Vector3(0.6, -0.5000001, -0.79999995), Vector3(-0.035, 0.02, -0.35)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Camera:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.25),
-"transitions": PackedFloat32Array(1, 2),
-"update": 0,
-"values": [Vector3(0.82591075, 3.0824747, -0.12418432), Vector3(0, 3.1415927, 0)]
-}
-
 [sub_resource type="Animation" id="Animation_6dqce"]
 resource_name = "close camera"
 length = 0.25
@@ -96,6 +68,34 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(2, 1),
 "update": 0,
 "values": [Vector3(0, 3.1415927, 0), Vector3(0.8255407, 3.0822515, -0.12391838)]
+}
+
+[sub_resource type="Animation" id="Animation_wr06p"]
+resource_name = "camera move"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 2),
+"update": 0,
+"values": [Vector3(0.6, -0.5000001, -0.79999995), Vector3(-0.035, 0.02, -0.35)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 2),
+"update": 0,
+"values": [Vector3(0.82591075, 3.0824747, -0.12418432), Vector3(0, 3.1415927, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6dqce"]
@@ -137,7 +137,7 @@ libraries = {
 }
 
 [node name="Camera" parent="Head" instance=ExtResource("2_wr06p")]
-transform = Transform3D(-0.9959724, -0.080133066, 0.040219128, -0.083821535, 0.67295945, -0.7349146, 0.031825118, -0.7353259, -0.67696595, 0.6, -0.5, -0.8)
+transform = Transform3D(-0.99597234, -0.08013306, 0.040219124, -0.08382153, 0.6729594, -0.73491454, 0.031825114, -0.7353258, -0.6769659, 0.6, -0.5, -0.8)
 
 [node name="Button" type="Button" parent="Head"]
 offset_left = 454.0
