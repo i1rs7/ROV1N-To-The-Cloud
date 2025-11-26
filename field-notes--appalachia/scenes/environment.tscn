@@ -1,4 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://wyht4o6wmvwe"]
+[gd_scene load_steps=11 format=3 uid="uid://wyht4o6wmvwe"]
+
+[ext_resource type="Texture2D" uid="uid://dau7tfmdqefk6" path="res://datadirectory/textures/ground037_alb_ht.png" id="1_7b2gm"]
+[ext_resource type="Texture2D" uid="uid://cks2oljy0pja" path="res://datadirectory/textures/ground037_nrm_rgh.png" id="2_wetts"]
 
 [sub_resource type="Gradient" id="Gradient_yilnh"]
 offsets = PackedFloat32Array(0.2, 1)
@@ -40,7 +43,6 @@ _shader_parameters = {
 &"noise_texture": SubResource("NoiseTexture2D_7b2gm"),
 &"projection_threshold": 0.8
 }
-show_checkered = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_00014"]
 transparency = 4
@@ -60,14 +62,20 @@ last_lod = 0
 last_shadow_lod = 0
 lod0_range = 128.0
 
+[sub_resource type="Terrain3DTextureAsset" id="Terrain3DTextureAsset_00014"]
+name = "ground037_alb_ht"
+albedo_texture = ExtResource("1_7b2gm")
+normal_texture = ExtResource("2_wetts")
+
 [sub_resource type="Terrain3DAssets" id="Terrain3DAssets_dm4p5"]
 mesh_list = Array[Terrain3DMeshAsset]([SubResource("Terrain3DMeshAsset_g4tgr")])
+texture_list = Array[Terrain3DTextureAsset]([SubResource("Terrain3DTextureAsset_00014")])
 
 [node name="Environment" type="Node3D"]
 
 [node name="Terrain3D" type="Terrain3D" parent="."]
+data_directory = "res://datadirectory"
 material = SubResource("Terrain3DMaterial_wetts")
 assets = SubResource("Terrain3DAssets_dm4p5")
-show_checkered = true
 top_level = true
 metadata/_edit_lock_ = true

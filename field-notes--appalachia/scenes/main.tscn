@@ -1,8 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://c6sslpmuhrbc3"]
+[gd_scene load_steps=7 format=3 uid="uid://c6sslpmuhrbc3"]
 
 [ext_resource type="Script" uid="uid://d1aq2wubx4s8c" path="res://scripts/main.gd" id="1_sugp2"]
 [ext_resource type="PackedScene" uid="uid://bs72ogkvdd7d6" path="res://addons/proto_controller/proto_controller.tscn" id="2_jyhfs"]
-[ext_resource type="Material" uid="uid://nbbdrx8vma80" path="res://terrain 3d demo/assets/materials/M_rock23_tp.tres" id="2_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://eavpqdpoohgc" path="res://scenes/tree_4_big.tscn" id="3_sugp2"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7dm0k"]
@@ -32,25 +31,24 @@ shadow_enabled = true
 transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 4.3, -1.8000004, 0.60000074)
 use_collision = true
 size = Vector3(16.2, 0.5, 13.1)
-material = ExtResource("2_tbgi4")
 
 [node name="ProtoController" parent="." instance=ExtResource("2_jyhfs")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8, -0.6, 8.3)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8, 22.6, 8.3)
 
-[node name="Environment" type="Node3D" parent="."]
+[node name="ProtoEnvironment" type="Node3D" parent="."]
 
-[node name="Tree 4 Big" parent="Environment" instance=ExtResource("3_sugp2")]
+[node name="Tree 4 Big" parent="ProtoEnvironment" instance=ExtResource("3_sugp2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4, -0.2, -0.8)
 
-[node name="Tree 4 Big2" parent="Environment" instance=ExtResource("3_sugp2")]
+[node name="Tree 4 Big2" parent="ProtoEnvironment" instance=ExtResource("3_sugp2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.6000004, -0.2, 4.7)
 
-[node name="Tree 4 Big3" parent="Environment" instance=ExtResource("3_sugp2")]
+[node name="Tree 4 Big3" parent="ProtoEnvironment" instance=ExtResource("3_sugp2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -0.2, -13.499999)
 
-[node name="Tree 4 Big4" parent="Environment" instance=ExtResource("3_sugp2")]
+[node name="Tree 4 Big4" parent="ProtoEnvironment" instance=ExtResource("3_sugp2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.700001, -0.2, -0.8)
 
-[node name="CSGCylinder3D" type="CSGCylinder3D" parent="Environment"]
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="ProtoEnvironment"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0999999, 0)
 height = 4.2
