@@ -9,7 +9,7 @@ extends CharacterBody3D
 @export_group("Speeds")
 @export var look_speed : float = 0.002
 @export var base_speed : float = 10.0
-@export var jump_velocity : float = 4.5
+@export var jump_velocity : float = 5.0
 @export var sprint_speed : float = 10.0
 @export var freefly_speed : float = 25.0
 
@@ -83,7 +83,7 @@ func _physics_process(delta: float) -> void:
 	# Apply gravity to velocity
 	if has_gravity:
 		if not is_on_floor():
-			velocity += get_gravity() * delta
+			velocity += get_gravity() * delta * 1.5
 
 	# Apply jumping
 	if can_jump:
