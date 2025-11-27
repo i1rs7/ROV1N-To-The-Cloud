@@ -1,6 +1,6 @@
 [gd_scene load_steps=33 format=3 uid="uid://c8gxtppdpgjqw"]
 
-[ext_resource type="Script" uid="uid://cohkm258d7t02" path="res://scenes/proto_environment.gd" id="1_6uhf6"]
+[ext_resource type="Script" uid="uid://cohkm258d7t02" path="res://scenes/environment.gd" id="1_6uhf6"]
 [ext_resource type="PackedScene" uid="uid://5m2aayv23or7" path="res://assets/ghibli nature/Pine_3.gltf" id="1_yekeh"]
 [ext_resource type="PackedScene" uid="uid://cv3mxnremc0xy" path="res://assets/ghibli nature/Pine_1.gltf" id="2_gdate"]
 [ext_resource type="PackedScene" uid="uid://uyph5exhn57k" path="res://assets/ghibli nature/Fern_1.gltf" id="3_b640b"]
@@ -115,7 +115,7 @@ normal_texture = ExtResource("19_y4l30")
 mesh_list = Array[Terrain3DMeshAsset]([SubResource("Terrain3DMeshAsset_e7orq")])
 texture_list = Array[Terrain3DTextureAsset]([SubResource("Terrain3DTextureAsset_1u17q"), SubResource("Terrain3DTextureAsset_p3654"), SubResource("Terrain3DTextureAsset_sibj5")])
 
-[node name="ProtoEnvironment" type="Node3D"]
+[node name="TerrainEnvironment" type="Node3D"]
 script = ExtResource("1_6uhf6")
 
 [node name="Pine_32" parent="." instance=ExtResource("1_yekeh")]

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://d1aq2wubx4s8c" path="res://scripts/main.gd" id="1_sugp2"]
 [ext_resource type="PackedScene" uid="uid://bs72ogkvdd7d6" path="res://addons/proto_controller/proto_controller.tscn" id="2_jyhfs"]
-[ext_resource type="PackedScene" uid="uid://c8gxtppdpgjqw" path="res://scenes/proto_environment.tscn" id="2_tbgi4"]
+[ext_resource type="PackedScene" uid="uid://c8gxtppdpgjqw" path="res://scenes/terrain_environment.tscn" id="2_tbgi4"]
 [ext_resource type="Script" uid="uid://broga2ghy74fn" path="res://scenes/player.gd" id="3_jyhfs"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7dm0k"]
