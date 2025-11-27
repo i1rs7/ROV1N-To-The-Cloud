@@ -1,0 +1,147 @@
+[gd_scene load_steps=18 format=3 uid="uid://c8gxtppdpgjqw"]
+
+[ext_resource type="Script" uid="uid://cohkm258d7t02" path="res://scenes/proto_environment.gd" id="1_6uhf6"]
+[ext_resource type="PackedScene" uid="uid://5m2aayv23or7" path="res://assets/ghibli nature/Pine_3.gltf" id="1_yekeh"]
+[ext_resource type="PackedScene" uid="uid://cv3mxnremc0xy" path="res://assets/ghibli nature/Pine_1.gltf" id="2_gdate"]
+[ext_resource type="PackedScene" uid="uid://uyph5exhn57k" path="res://assets/ghibli nature/Fern_1.gltf" id="3_b640b"]
+[ext_resource type="PackedScene" uid="uid://chd41jbnlu0lx" path="res://assets/ghibli nature/Grass_Wispy_Tall.gltf" id="4_n8cs6"]
+[ext_resource type="PackedScene" uid="uid://ckyxuy0tdbr4g" path="res://assets/ghibli nature/Bush_Common_Flowers.gltf" id="5_r42yt"]
+[ext_resource type="PackedScene" uid="uid://bri5tw75h3fs7" path="res://assets/ghibli nature/Clover_1.gltf" id="6_k52gr"]
+[ext_resource type="PackedScene" uid="uid://d1cy4i4bsv85o" path="res://assets/ghibli nature/Grass_Common_Tall.gltf" id="7_gf1ej"]
+[ext_resource type="PackedScene" uid="uid://drx76wct7r7yq" path="res://assets/ghibli nature/CommonTree_5.gltf" id="8_6uhf6"]
+[ext_resource type="PackedScene" uid="uid://ccjiwokehueuo" path="res://assets/ghibli nature/Mushroom_Common.gltf" id="9_mnsb1"]
+[ext_resource type="PackedScene" uid="uid://bhd16781im4q6" path="res://assets/ghibli nature/Pebble_Round_2.gltf" id="10_k52gr"]
+[ext_resource type="PackedScene" uid="uid://b3snql78ac6sp" path="res://assets/ghibli nature/Pebble_Round_5.gltf" id="11_gf1ej"]
+[ext_resource type="PackedScene" uid="uid://daxh20df3huac" path="res://assets/ghibli nature/Pebble_Round_3.gltf" id="12_6uhf6"]
+[ext_resource type="PackedScene" uid="uid://bmi7h17q6e0kf" path="res://assets/ghibli nature/Pebble_Round_1.gltf" id="13_mnsb1"]
+[ext_resource type="PackedScene" uid="uid://bel66l6ehq3ql" path="res://assets/kaykit nature/Bush_1_B_Color1.gltf" id="14_gf1ej"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k52gr"]
+albedo_color = Color(0.14901961, 0.30588236, 0.16078432, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g1bdj"]
+albedo_color = Color(0.06666667, 0.12156863, 0.0627451, 1)
+
+[node name="ProtoEnvironment" type="Node3D"]
+script = ExtResource("1_6uhf6")
+
+[node name="Pine_32" parent="." instance=ExtResource("1_yekeh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.5, -0.3, -3.3)
+
+[node name="Pine_33" parent="." instance=ExtResource("1_yekeh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.4000025, 0.4, -7.7000003)
+
+[node name="Floor" type="CSGBox3D" parent="."]
+transform = Transform3D(9, 0, 0, 0, 9, 0, 0, 0, 9, 4.3, -2, 0)
+use_collision = true
+size = Vector3(16.2, 0.5, 13.1)
+material = SubResource("StandardMaterial3D_k52gr")
+
+[node name="Floor2" type="CSGBox3D" parent="."]
+transform = Transform3D(9, 0, 0, 0, 9, 0, 0, 0, 9, -2, -1.819, 0)
+top_level = true
+use_collision = true
+size = Vector3(1.6, 0.5, 13.1)
+material = SubResource("StandardMaterial3D_g1bdj")
+
+[node name="Pine_12" parent="." instance=ExtResource("2_gdate")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.399999, 0.4, -16.7)
+
+[node name="Pine_12" parent="Pine_12" instance=ExtResource("2_gdate")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.700003, 0.4, 19.399998)
+
+[node name="Fern_12" parent="." instance=ExtResource("3_b640b")]
+transform = Transform3D(1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, 3.3799996, 0.19999999, -5.3399997)
+
+[node name="Fern_14" parent="." instance=ExtResource("3_b640b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.000001, 0.19999999, -5.7)
+
+[node name="Fern_13" parent="." instance=ExtResource("3_b640b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.2999997, 0.6, 5.3000007)
+
+[node name="Fern_15" parent="." instance=ExtResource("3_b640b")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 6.300002, 0.6, 16)
+
+[node name="Grass_Wispy_Tall2" parent="." instance=ExtResource("4_n8cs6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.4, 0.3, -2.6000001)
+
+[node name="Grass_Wispy_Tall3" parent="." instance=ExtResource("4_n8cs6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.4, 0.19999999, 3.4999998)
+
+[node name="Grass_Wispy_Tall4" parent="." instance=ExtResource("4_n8cs6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.400001, 0.19999999, -4)
+
+[node name="Grass_Wispy_Tall5" parent="." instance=ExtResource("4_n8cs6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.2000012, 0.19999999, 9.8)
+
+[node name="Bush_Common_Flowers2" parent="." instance=ExtResource("5_r42yt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.0000005, 0.7, -12.7)
+
+[node name="Bush_Common_Flowers4" parent="." instance=ExtResource("5_r42yt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.8, 0.7, -9.799999)
+
+[node name="Bush_Common_Flowers2" parent="Bush_Common_Flowers4" instance=ExtResource("5_r42yt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.4999995, 0.7, 12.8)
+
+[node name="Bush_Common_Flowers3" parent="Bush_Common_Flowers4" instance=ExtResource("5_r42yt")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -0.49999905, -0.90000004, 20.9)
+
+[node name="Bush_Common_Flowers3" parent="." instance=ExtResource("5_r42yt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.0000005, 0.7, 2)
+
+[node name="Clover_12" parent="." instance=ExtResource("6_k52gr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.400001, 0.5, 4.9)
+
+[node name="Clover_13" parent="." instance=ExtResource("6_k52gr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.700001, 0.5, -6.0000005)
+
+[node name="Clover_14" parent="." instance=ExtResource("6_k52gr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.2000003, 0.5, -10.400001)
+
+[node name="Clover_15" parent="." instance=ExtResource("6_k52gr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.9000008, 0.5, 2.7999995)
+
+[node name="Grass_Common_Tall2" parent="." instance=ExtResource("7_gf1ej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 0.5, 4)
+
+[node name="Grass_Common_Tall3" parent="." instance=ExtResource("7_gf1ej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.3000007, 0.5, -0.5)
+
+[node name="Grass_Common_Tall4" parent="." instance=ExtResource("7_gf1ej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.1, 0.5, -4.6)
+
+[node name="Grass_Common_Tall5" parent="." instance=ExtResource("7_gf1ej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5999997, 0.5, -18.5)
+
+[node name="CommonTree_52" parent="." instance=ExtResource("8_6uhf6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.3, 1.2, 12.8)
+
+[node name="CommonTree_53" parent="." instance=ExtResource("8_6uhf6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.600001, 1.2, 7)
+
+[node name="Mushroom_Common2" parent="." instance=ExtResource("9_mnsb1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.900001, 0.5, -1.3000001)
+
+[node name="Pebble_Round_22" parent="." instance=ExtResource("10_k52gr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.6, 0.5, 13.6)
+
+[node name="Pebble_Round_52" parent="." instance=ExtResource("11_gf1ej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.2, 0.5, 6.9)
+
+[node name="Pebble_Round_32" parent="." instance=ExtResource("12_6uhf6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.9, 0.5, -2.3)
+
+[node name="Pebble_Round_12" parent="." instance=ExtResource("13_mnsb1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.6, 0.5, 8.6)
+
+[node name="Pebble_Round_33" parent="." instance=ExtResource("12_6uhf6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.6, 0.5, 5.7000003)
+
+[node name="Bush_1_B_Color12" parent="." instance=ExtResource("14_gf1ej")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.3, -0.4, 21.7)
+
+[node name="Marker3D" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.000001, 0, -58.7)
+
+[node name="Marker3D2" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.799999, 0, 58.600002)

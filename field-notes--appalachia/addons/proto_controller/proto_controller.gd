@@ -1,49 +1,28 @@
-# ProtoController v1.0 by Brackeys
-# CC0 License
-# Intended for rapid prototyping of first-person games.
-# Happy prototyping!
-
 extends CharacterBody3D
 
-## Can we move around?
 @export var can_move : bool = true
-## Are we affected by gravity?
 @export var has_gravity : bool = true
-## Can we press to jump?
 @export var can_jump : bool = true
-## Can we hold to run?
 @export var can_sprint : bool = false
-## Can we press to enter freefly mode (noclip)?
 @export var can_freefly : bool = false
 
 @export_group("Speeds")
-## Look around rotation speed.
 @export var look_speed : float = 0.002
-## Normal speed.
-@export var base_speed : float = 7.0
-## Speed of jump.
+@export var base_speed : float = 10.0
 @export var jump_velocity : float = 4.5
-## How fast do we run?
 @export var sprint_speed : float = 10.0
-## How fast do we freefly?
 @export var freefly_speed : float = 25.0
 
 @export_group("Input Actions")
-## Name of Input Action to move Left.
 @export var input_left : String = "ui_left"
-## Name of Input Action to move Right.
 @export var input_right : String = "ui_right"
-## Name of Input Action to move Forward.
 @export var input_forward : String = "ui_up"
-## Name of Input Action to move Backward.
 @export var input_back : String = "ui_down"
-## Name of Input Action to Jump.
 @export var input_jump : String = "ui_accept"
-## Name of Input Action to Sprint.
 @export var input_sprint : String = "sprint"
-## Name of Input Action to toggle freefly mode.
 @export var input_freefly : String = "freefly"
 
+##states
 var camera_open : bool = false
 var mouse_captured : bool = false
 var look_rotation : Vector2
@@ -91,8 +70,6 @@ func _unhandled_input(event: InputEvent) -> void:
 		else:
 			$Head/AnimationPlayer.play("open camera")
 			camera_open = true
-
-			
 
 func _physics_process(delta: float) -> void:
 	# If freeflying, handle freefly and nothing else
@@ -150,10 +127,6 @@ func rotate_look(rot_input : Vector2):
 	rotate_y(look_rotation.y)
 	head.transform.basis = Basis()
 	head.rotate_x(look_rotation.x)
-	
-	
-	
-
 
 func enable_freefly():
 	collider.disabled = true
@@ -164,11 +137,9 @@ func disable_freefly():
 	collider.disabled = false
 	freeflying = false
 
-
 func capture_mouse():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	mouse_captured = true
-
 
 func release_mouse():
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
@@ -176,9 +147,7 @@ func release_mouse():
 	
 	
 
-
-## Checks if some Input Actions haven't been created.
-## Disables functionality accordingly.
+## Checks if some Input Actions haven't been created, disables functionality accordingly.
 func check_input_mappings():
 	if can_move and not InputMap.has_action(input_left):
 		push_error("Movement disabled. No InputAction found for input_left: " + input_left)

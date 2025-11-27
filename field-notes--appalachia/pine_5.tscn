@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://clckeebky8xjb"]
+
+[ext_resource type="PackedScene" uid="uid://bncw1hglvg7qq" path="res://assets/ghibli nature/Pine_5.gltf" id="1_r0af3"]
+
+[node name="pine_5" type="Node3D"]
+
+[node name="Pine_52" parent="." instance=ExtResource("1_r0af3")]

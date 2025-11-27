@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://dxoqbrc70acv6"]
+
+[ext_resource type="PackedScene" uid="uid://ddbcsh4cd5p7o" path="res://assets/ghibli nature/CommonTree_4.gltf" id="1_rjlar"]
+
+[node name="commontree_4" type="Node3D"]
+
+[node name="CommonTree_42" parent="." instance=ExtResource("1_rjlar")]

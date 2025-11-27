@@ -138,12 +138,3 @@ libraries = {
 
 [node name="Camera" parent="Head" instance=ExtResource("2_wr06p")]
 transform = Transform3D(-0.99597234, -0.08013306, 0.040219124, -0.08382153, 0.6729594, -0.73491454, 0.031825114, -0.7353258, -0.6769659, 0.6, -0.5, -0.8)
-
-[node name="Button" type="Button" parent="Head"]
-offset_left = 454.0
-offset_top = 499.0
-offset_right = 711.0
-offset_bottom = 571.0
-text = "Change Cam"
-
-[connection signal="pressed" from="Head/Button" to="Head" method="_on_button_pressed"]
