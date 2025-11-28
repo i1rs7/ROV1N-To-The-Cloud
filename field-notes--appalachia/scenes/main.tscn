@@ -1,9 +1,9 @@
 [gd_scene load_steps=8 format=3 uid="uid://c6sslpmuhrbc3"]
 
 [ext_resource type="Script" uid="uid://d1aq2wubx4s8c" path="res://scripts/main.gd" id="1_sugp2"]
-[ext_resource type="PackedScene" uid="uid://bs72ogkvdd7d6" path="res://addons/proto_controller/proto_controller.tscn" id="2_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://d18swyctx8m84" path="res://scenes/proto_environment.tscn" id="2_tbgi4"]
 [ext_resource type="Script" uid="uid://broga2ghy74fn" path="res://scripts/player.gd" id="3_jyhfs"]
+[ext_resource type="PackedScene" uid="uid://6kywuu335guj" path="res://scenes/third_p_controller.tscn" id="3_tbgi4"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7dm0k"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -32,6 +32,7 @@ shadow_enabled = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -58.5, 28.1, 69.1)
 script = ExtResource("3_jyhfs")
 
-[node name="ProtoController" parent="Player" instance=ExtResource("2_jyhfs")]
+[node name="third_p_controller" parent="Player" instance=ExtResource("3_tbgi4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -27.2, 0)
 
 [node name="proto_environment" parent="." instance=ExtResource("2_tbgi4")]
