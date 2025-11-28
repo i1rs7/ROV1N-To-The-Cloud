@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://6kywuu335guj"]
 
-[ext_resource type="Script" uid="uid://cfvk4mpu41xkg" path="res://scripts/new_tp_controller.gd" id="1_psv7u"]
+[ext_resource type="Script" uid="uid://cfvk4mpu41xkg" path="res://archive/new_tp_controller.gd" id="1_psv7u"]
 [ext_resource type="PackedScene" uid="uid://bmc6qg4yq7r8f" path="res://scenes/robot.tscn" id="2_psv7u"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_psv7u"]
