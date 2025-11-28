@@ -7,21 +7,14 @@ extends CharacterBody3D
 @export var rotation_speed := 12.0
 @export var stopping_speed := 1.0
 
-
 var _gravity : = -45.0
 var _was_on_floor_last_frame := true
 
-
-## The last movement or aim direction input by the player. We use this to orient
-## the character model.
 @onready var _last_input_direction := global_basis.z
-# We store the initial position of the player to reset to it when the player falls off the map.
 @onready var _start_position := global_position
 @onready var _skin = $Robot
 @onready var AnimPlayer = $Robot/AnimationPlayer
-@onready var robo_cam: Camera3D = $RoboCam
-@onready var head_pos: Marker3D = $Robot/Marker3D
-
+@onready var robo_cam: Camera3D = $Robot/Head/SpringArm3D/RoboCam
 
 
 func _ready() -> void:
@@ -31,19 +24,22 @@ func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity.y += _gravity * delta
 	
-	var input_dir := Input.get_vector("move_left", "move_right", "move_forward", "move_backward")
-	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
-	_last_input_direction = Vector3(input_dir.x, 0, input_dir.y)
-	if direction:
-		velocity.x = direction.x * move_speed
-		velocity.z = direction.z * move_speed
-		var target_angle := Vector3.BACK.signed_angle_to(_last_input_direction, Vector3.UP)
-		_skin.global_rotation.y = lerp_angle(_skin.rotation.y, target_angle, rotation_speed * delta)
-		#robo_cam.rotation = _skin.global_rotation
-		#robo_cam.rotation.y = _skin.global_rotation.y + 180.0
+	if Globals.can_move:
+		var input_dir := Input.get_vector("move_left", "move_right", "move_forward", "move_backward")
+		var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+		_last_input_direction = Vector3(input_dir.x, 0, input_dir.y)
+		if direction:
+			velocity.x = direction.x * move_speed
+			velocity.z = direction.z * move_speed
+			var target_angle := Vector3.BACK.signed_angle_to(_last_input_direction, Vector3.UP)
+			_skin.global_rotation.y = lerp_angle(_skin.rotation.y, target_angle, rotation_speed * delta)
+		else:
+			velocity.x = move_toward(velocity.x, 0, move_speed)
+			velocity.z = move_toward(velocity.z, 0, move_speed)
 	else:
-		velocity.x = move_toward(velocity.x, 0, move_speed)
-		velocity.z = move_toward(velocity.z, 0, move_speed)
+		velocity.x = 0.0
+		velocity.y = 0.0
+		velocity.z = 0.0
 	
 
 	# Character animations and visual effects.

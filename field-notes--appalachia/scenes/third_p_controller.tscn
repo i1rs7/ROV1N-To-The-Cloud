@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://6kywuu335guj"]
+[gd_scene load_steps=6 format=3 uid="uid://6kywuu335guj"]
 
 [ext_resource type="Script" uid="uid://dbx2kauar4ly0" path="res://scripts/third_p_controller.gd" id="1_psv7u"]
 [ext_resource type="PackedScene" uid="uid://bmc6qg4yq7r8f" path="res://scenes/robot.tscn" id="2_psv7u"]
+[ext_resource type="Texture2D" uid="uid://bg7thoyxxoq0i" path="res://assets/cam overlay.png" id="3_mv52c"]
+[ext_resource type="FontFile" uid="uid://pvnia71tkpvi" path="res://assets/fonts/Kenney Pixel Square.ttf" id="4_8olxv"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_psv7u"]
 radius = 1.2
@@ -17,12 +19,33 @@ shape = SubResource("CapsuleShape3D_psv7u")
 [node name="Robot" parent="." instance=ExtResource("2_psv7u")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
 
-[node name="Marker3D" type="Marker3D" parent="Robot"]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 3.7, 1.6)
+[node name="Head" type="Node3D" parent="Robot"]
 
-[node name="SpringArm3D" type="SpringArm3D" parent="Robot"]
+[node name="SpringArm3D" type="SpringArm3D" parent="Robot/Head"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.5, 0)
 spring_length = 5.0
 
-[node name="RoboCam" type="Camera3D" parent="Robot/SpringArm3D"]
+[node name="RoboCam" type="Camera3D" parent="Robot/Head/SpringArm3D"]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0, 0)
+
+[node name="CamUI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 29.0
+offset_bottom = 25.0
+
+[node name="CamOverlay" type="Sprite2D" parent="CamUI"]
+position = Vector2(574, 322)
+scale = Vector2(1.853263, 1.69944)
+texture = ExtResource("3_mv52c")
+
+[node name="ZoomLabel" type="Label" parent="CamUI"]
+layout_mode = 0
+offset_left = 395.0
+offset_top = 46.0
+offset_right = 738.0
+offset_bottom = 94.0
+theme_override_fonts/font = ExtResource("4_8olxv")
+theme_override_font_sizes/font_size = 32
+text = "Zoom: _%"
+horizontal_alignment = 1
