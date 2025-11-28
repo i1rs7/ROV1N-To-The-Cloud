@@ -92,10 +92,12 @@ func _process(delta: float) -> void:
 			#saving pic to sprite and assets
 			var img = sub_viewport.get_texture().get_image()
 			img.save_jpg("res://in_game_pics/"+str(idx)+".png")
+			Globals.photo_album.append("res://in_game_pics/"+str(idx)+".png")
 			idx += 1
 			var texture = ImageTexture.new()
 			texture = ImageTexture.create_from_image(img)
 			recent_pic.texture = texture
+			
 			
 			# showing pic in corner
 			recent_pic.show()
