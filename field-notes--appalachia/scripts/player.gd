@@ -33,6 +33,8 @@ var _camera_input_direction := Vector2.ZERO
 enum Cam_States {FIRST_PERSON, THIRD_PERSON}
 var cam_state : Cam_States = Cam_States.THIRD_PERSON
 
+var idx = 1
+
 func _ready() -> void:
 	enter_third_person()
 
@@ -59,7 +61,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		else:
 			enter_third_person()
 
-func _physics_process(delta: float) -> void:
+func _process(delta: float) -> void:
 	robo_cam_2.transform = robo_cam.global_transform
 	
 	# first person properties
@@ -86,17 +88,24 @@ func _physics_process(delta: float) -> void:
 		
 		#taking picture
 		if (Input.is_action_just_pressed("shoot")):
+			
 			#saving pic to sprite and assets
 			var img = sub_viewport.get_texture().get_image()
+			img.save_jpg("res://in_game_pics/"+str(idx)+".png")
+			idx += 1
 			var texture = ImageTexture.new()
 			texture = ImageTexture.create_from_image(img)
 			recent_pic.texture = texture
+			
 			# showing pic in corner
-			#recent_pic.show()
-			#pic_view_timer.start()
-			#await pic_view_timer.timeout
-			#print("timed out")
-			#recent_pic.hide()
+			recent_pic.show()
+			pic_view_timer.start()
+			await pic_view_timer.timeout
+			print("timed out")
+			recent_pic.hide()
+	
+	if (Input.is_action_just_pressed("debug")):
+		get_tree().change_scene_to_file("res://scenes/photo_album.tscn")
 
 
 func enter_first_person():
@@ -107,17 +116,16 @@ func enter_first_person():
 	Globals.can_move = false
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	mouse_captured = true
-	#recent_pic.hide()
+	recent_pic.hide()
 	
 func enter_third_person():
 	cam_state = Cam_States.THIRD_PERSON
 	tp_cam.make_current()
-	#cam_ui.hide()
+	cam_ui.hide()
 	robot.show()
 	Globals.can_move = true
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	mouse_captured = false
-	#recent_pic.hide()
 
 func rotate_look(rot_input : Vector2):
 	look_rotation.x -= rot_input.y * look_speed

@@ -9,8 +9,7 @@
 radius = 1.2
 height = 4.7000003
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_8olxv"]
-viewport_path = NodePath("Robot/Head/SubViewport")
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_8olxv"]
 
 [node name="third_p_controller" type="CharacterBody3D"]
 script = ExtResource("1_psv7u")
@@ -32,7 +31,6 @@ spring_length = 5.0
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0, 0)
 
 [node name="SubViewport" type="SubViewport" parent="Robot/Head"]
-own_world_3d = true
 size = Vector2i(1152, 648)
 render_target_update_mode = 4
 
@@ -64,7 +62,7 @@ horizontal_alignment = 1
 [node name="RecentPic" type="Sprite2D" parent="CamUI"]
 position = Vector2(155, 562)
 scale = Vector2(0.27, 0.27)
-texture = SubResource("ViewportTexture_8olxv")
+texture = SubResource("PlaceholderTexture2D_8olxv")
 
 [node name="PicView" type="Timer" parent="CamUI"]
 wait_time = 2.0

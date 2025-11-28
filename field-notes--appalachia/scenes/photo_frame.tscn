@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://bf8e1x8j4k2h2"]
+
+[ext_resource type="Texture2D" uid="uid://i30gr8h5xpci" path="res://assets/picture frame.png" id="1_l25ve"]
+[ext_resource type="Script" uid="uid://bak6gm2f6o7nm" path="res://scenes/photo.gd" id="1_rwwyg"]
+
+[node name="PhotoFrame" type="Node2D"]
+script = ExtResource("1_rwwyg")
+
+[node name="frame" type="TextureRect" parent="."]
+offset_left = 305.24832
+offset_top = -28.999987
+offset_right = 805.2483
+offset_bottom = 471.0
+rotation = 1.5707964
+scale = Vector2(0.5649169, 0.61049664)
+texture = ExtResource("1_l25ve")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = 37.24832
+offset_top = 25.000013
+offset_right = 1212.3218
+offset_bottom = 718.8154
+scale = Vector2(0.20658426, 0.25222844)
