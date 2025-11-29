@@ -1,6 +1,7 @@
 extends Node
 
 var can_move = true
+var photos_left = 6
 var photo_album : Array = []
 
 # Called when the node enters the scene tree for the first time.

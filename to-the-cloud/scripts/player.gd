@@ -1,6 +1,6 @@
 extends Node3D
 
-@onready var tp_cam: Camera3D = $Camera3D
+@onready var tp_cam: Camera3D = $third_p_controller/Camera3D
 @onready var robo_cam: Camera3D = $third_p_controller/Robot/Head/SpringArm3D/RoboCam
 @onready var robo_cam_2: Camera3D = $third_p_controller/Robot/Head/SubViewport/RoboCam2
 @onready var robot: Node3D = $third_p_controller/Robot
@@ -39,7 +39,7 @@ var cam_state : Cam_States = Cam_States.THIRD_PERSON
 
 #photo album related
 var idx = 1
-var photos_left = 6
+
 
 func _ready() -> void:
 	enter_third_person()
@@ -93,10 +93,10 @@ func _process(delta: float) -> void:
 		zoom_label.set_text("Zoom: "+ str(int(zoom_amount*100)) + "%")
 		
 		#taking picture
-		if (Input.is_action_just_pressed("shoot")) and photos_left > 0:
+		if (Input.is_action_just_pressed("shoot")) and Globals.photos_left > 0:
 			#lower num of photos left
-			photos_left -= 1
-			photos_left_label.text = "Photos Remaining: " + str(photos_left)
+			Globals.photos_left -= 1
+			photos_left_label.text = "Photos Remaining: " + str(Globals.photos_left)
 			
 			#saving pic to sprite and assets
 			var img = sub_viewport.get_texture().get_image()
@@ -113,7 +113,7 @@ func _process(delta: float) -> void:
 			await pic_view_timer.timeout
 			print("timed out")
 			recent_pic.hide()
-		elif photos_left == 0:
+		elif Globals.photos_left == 0:
 			photos_left_label.text = "Photos Remaining: 0 \n Press C to View Album"
 	
 	#moving to photo album scene

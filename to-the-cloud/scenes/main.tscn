@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://c6sslpmuhrbc3"]
 
 [ext_resource type="Script" uid="uid://d1aq2wubx4s8c" path="res://scripts/player.gd" id="3_jyhfs"]
+[ext_resource type="PackedScene" uid="uid://d18swyctx8m84" path="res://scenes/proto_environment.tscn" id="3_sugp2"]
 [ext_resource type="PackedScene" uid="uid://6kywuu335guj" path="res://scenes/third_p_controller.tscn" id="3_tbgi4"]
-[ext_resource type="PackedScene" uid="uid://dvw4w7n588has" path="res://scenes/boxes_environment.tscn" id="4_jyhfs"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7dm0k"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -33,7 +33,7 @@ script = ExtResource("3_jyhfs")
 [node name="third_p_controller" parent="Player" instance=ExtResource("3_tbgi4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -27.2, 0)
 
-[node name="Camera3D" type="Camera3D" parent="Player"]
-transform = Transform3D(1, 0, 0, 0, 0.8660254, 0.5, 0, -0.5, 0.8660254, -10.599998, -13.900001, 10.800003)
+[node name="Camera3D" type="Camera3D" parent="Player/third_p_controller"]
+transform = Transform3D(1, 0, 0, 0, 0.9396926, 0.34202015, 0, -0.34202015, 0.9396926, 0.30000132, 15.166093, 20.102768)
 
-[node name="proto_environment" parent="." instance=ExtResource("4_jyhfs")]
+[node name="proto_environment" parent="." instance=ExtResource("3_sugp2")]
