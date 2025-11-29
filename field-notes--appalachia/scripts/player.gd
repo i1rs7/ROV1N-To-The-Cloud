@@ -10,6 +10,7 @@ extends Node3D
 @onready var recent_pic: Sprite2D = $third_p_controller/CamUI/RecentPic
 @onready var sub_viewport: SubViewport = $third_p_controller/Robot/Head/SubViewport
 @onready var pic_view_timer: Timer = $third_p_controller/CamUI/PicView
+@onready var photos_left_label: Label = $third_p_controller/CamUI/PhotosLeft
 
 @export var tilt_upper_limit := PI / 4.0
 @export var tilt_lower_limit := -PI / 7.0
@@ -28,12 +29,16 @@ var freeflying : bool = false
 var look_speed : float = 0.002
 var can_move : bool = true
 
+#cam rotation for 1st person
 var _camera_input_direction := Vector2.ZERO
 
+#player view states
 enum Cam_States {FIRST_PERSON, THIRD_PERSON}
 var cam_state : Cam_States = Cam_States.THIRD_PERSON
 
+#photo album related
 var idx = 1
+var photos_left = 6
 
 func _ready() -> void:
 	enter_third_person()
@@ -87,7 +92,10 @@ func _process(delta: float) -> void:
 		zoom_label.set_text("Zoom: "+ str(int(zoom_amount*100)) + "%")
 		
 		#taking picture
-		if (Input.is_action_just_pressed("shoot")):
+		if (Input.is_action_just_pressed("shoot")) and photos_left > 0:
+			#lower num of photos left
+			photos_left -= 1
+			photos_left_label.text = "Photos Remaining: " + str(photos_left)
 			
 			#saving pic to sprite and assets
 			var img = sub_viewport.get_texture().get_image()
@@ -98,14 +106,16 @@ func _process(delta: float) -> void:
 			texture = ImageTexture.create_from_image(img)
 			recent_pic.texture = texture
 			
-			
 			# showing pic in corner
 			recent_pic.show()
 			pic_view_timer.start()
 			await pic_view_timer.timeout
 			print("timed out")
 			recent_pic.hide()
+		elif photos_left == 0:
+			photos_left_label.text = "Photos Remaining: 0 \n Press C to View Album"
 	
+	#moving to photo album scene
 	if (Input.is_action_just_pressed("debug")):
 		get_tree().change_scene_to_file("res://scenes/photo_album.tscn")
 
