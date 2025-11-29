@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://u0h4bamif86y"]
+[gd_scene load_steps=4 format=3 uid="uid://u0h4bamif86y"]
 
+[ext_resource type="PackedScene" uid="uid://bf8e1x8j4k2h2" path="res://scenes/photo_frame.tscn" id="1_24pph"]
 [ext_resource type="Script" uid="uid://xel286us3k3g" path="res://scripts/photo_album.gd" id="1_u71wr"]
+[ext_resource type="FontFile" uid="uid://pvnia71tkpvi" path="res://assets/fonts/Kenney Pixel Square.ttf" id="3_41d23"]
 
 [node name="PhotoAlbum" type="ColorRect"]
 anchors_preset = 15
@@ -15,15 +17,53 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 55.0
+offset_top = 112.0
+offset_right = -39.0
+offset_bottom = -22.0
 grow_horizontal = 2
 grow_vertical = 2
+columns = 3
 
-[node name="Photo1" type="TextureRect" parent="GridContainer"]
+[node name="PhotoFrame" parent="GridContainer" instance=ExtResource("1_24pph")]
+custom_minimum_size = Vector2(350, 250)
 layout_mode = 2
+script = null
 
-[node name="Photo2" type="TextureRect" parent="GridContainer"]
+[node name="PhotoFrame2" parent="GridContainer" instance=ExtResource("1_24pph")]
+custom_minimum_size = Vector2(350, 250)
 layout_mode = 2
-expand_mode = 3
+script = null
 
-[node name="Photo3" type="TextureRect" parent="GridContainer"]
+[node name="PhotoFrame3" parent="GridContainer" instance=ExtResource("1_24pph")]
+custom_minimum_size = Vector2(350, 250)
 layout_mode = 2
+script = null
+
+[node name="PhotoFrame4" parent="GridContainer" instance=ExtResource("1_24pph")]
+custom_minimum_size = Vector2(350, 250)
+layout_mode = 2
+script = null
+
+[node name="PhotoFrame5" parent="GridContainer" instance=ExtResource("1_24pph")]
+custom_minimum_size = Vector2(350, 250)
+layout_mode = 2
+script = null
+
+[node name="PhotoFrame6" parent="GridContainer" instance=ExtResource("1_24pph")]
+custom_minimum_size = Vector2(350, 250)
+layout_mode = 2
+script = null
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 32.0
+offset_bottom = 128.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_41d23")
+theme_override_font_sizes/font_size = 32
+text = "Photo Album"
+horizontal_alignment = 1
